@@ -1,0 +1,151 @@
+[
+    {
+        "id": "e22e59af75800901",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "bc609e598bcbd17a",
+        "type": "serial in",
+        "z": "e22e59af75800901",
+        "name": "",
+        "serial": "14a631cf4e51746a",
+        "x": 50,
+        "y": 280,
+        "wires": [
+            [
+                "6a38303229b4a73d"
+            ]
+        ]
+    },
+    {
+        "id": "6a38303229b4a73d",
+        "type": "json",
+        "z": "e22e59af75800901",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 210,
+        "y": 280,
+        "wires": [
+            [
+                "be3eafd97ed2da37",
+                "58fb485ade419d23"
+            ]
+        ]
+    },
+    {
+        "id": "7f1cfc0f87f8bc88",
+        "type": "ui_gauge",
+        "z": "e22e59af75800901",
+        "name": "",
+        "group": "4fe8948ab89c3ecc",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "wave",
+        "title": "Fluxo da água na valvula 1",
+        "label": "ml",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "10000000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 660,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "be3eafd97ed2da37",
+        "type": "change",
+        "z": "e22e59af75800901",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.volumeTotal",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 280,
+        "wires": [
+            [
+                "7f1cfc0f87f8bc88"
+            ]
+        ]
+    },
+    {
+        "id": "58fb485ade419d23",
+        "type": "debug",
+        "z": "e22e59af75800901",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "14a631cf4e51746a",
+        "type": "serial-port",
+        "serialport": "COM5",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "4fe8948ab89c3ecc",
+        "type": "ui_group",
+        "name": "Volume de água",
+        "tab": "63cd4ad5688b6cb7",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "63cd4ad5688b6cb7",
+        "type": "ui_tab",
+        "name": "Sprint3",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

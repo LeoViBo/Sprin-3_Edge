@@ -1,0 +1,132 @@
+#include <ArduinoJson.h>
+#include <LiquidCrystal.h>
+
+int BluetoothLigado_led = 2;
+int BluetoothDesligado_led = 3;
+
+int LigarBluetooth_btn = 4;
+int estado_btn = 0;
+
+int volumeDeAgua;
+int volumeTotal;
+int mediaVolume[] = {0, 0, 0, 0, 0};
+
+LiquidCrystal lcd_1(13, 12, 11, 10, 9, 8);
+
+void setup()
+
+{
+
+  Serial.begin(9600);
+
+ 
+
+  pinMode(A2, INPUT);
+
+  pinMode(BluetoothLigado_led, OUTPUT);
+
+  pinMode(BluetoothDesligado_led, OUTPUT);
+
+  pinMode(LigarBluetooth_btn, INPUT);
+
+ 
+
+  digitalWrite(LigarBluetooth_btn, HIGH);
+
+ 
+
+  lcd_1.begin(20, 2);
+
+}
+
+ 
+
+void loop()
+
+{
+
+  estado_btn = digitalRead(LigarBluetooth_btn);
+
+  if (estado_btn == HIGH)
+
+  {
+
+    resetLuz();
+
+    digitalWrite(BluetoothDesligado_led, HIGH);
+
+  }
+
+  else
+
+  {
+
+    resetLuz();
+
+    digitalWrite(BluetoothLigado_led, HIGH);
+
+    vazao();
+
+  }
+
+}
+
+ 
+
+void resetLuz()
+
+{
+
+  digitalWrite(BluetoothLigado_led, LOW);
+
+  digitalWrite(BluetoothDesligado_led, LOW);
+
+}
+
+ 
+
+void vazao()
+
+{
+
+  volumeDeAgua = analogRead(A2);
+
+  int QuantidadeDeAgua = map(volumeDeAgua, 0, 1023, 100, 0);
+
+  volumeTotal += QuantidadeDeAgua;
+
+ 
+
+  // Crie um objeto JSON para armazenar os dados
+
+  StaticJsonDocument<128> json;
+
+  json["volumeTotal"] = volumeTotal;
+
+ 
+
+  // Serialize o objeto JSON para uma string
+
+  String jsonString;
+
+  serializeJson(json, jsonString);
+
+ 
+
+  // Envie o JSON pela porta serial
+
+  Serial.println(jsonString);
+
+ 
+
+  lcd_1.setCursor(0, 0);
+
+  lcd_1.print("Volume de agua:                ");
+
+  lcd_1.setCursor(0, 1);
+
+  lcd_1.print(String(volumeTotal) + "ml");
+
+  delay(200);
+
+}
