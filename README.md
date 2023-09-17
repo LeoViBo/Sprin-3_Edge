@@ -1,13 +1,17 @@
-# Sprin-3_Edge
----- Grupo - International Business of FIAP (IBF):
+# Sprin 3 - Edge Computing & Computer Systems
+## Grupo - International Business of FIAP (IBF):
 
 RM92699 - Arielly Gleice Geovana de Oliveira
+
 RM97673 - Tulio Damaceno de Resende
+
 RM551869 - Fabrizio Maia Apparicio
+
 RM551684 - Victor Miguel Gouveia Asfur
+
 RM551715 - Leonardo Viotti Bonini
 
----- Explicação do Projeto
+## Explicação do Projeto
 
 Nosso projeto é usar uma válvula que, quando instalada em um cano, detecta o fluxo de água que está passando pelo cano, e depois informa para um aplicativo para o usuário o quanto de água esta sendo gasta. Para simularmos o projeto usamos potenciometros para servir de fluxo de água e usamos o LCD como uma forma de verificar pelo hardware a fluxo de água como um health check assim como luzes led que ligam e desligam o projeto por meio de um botão, funcionando quando precionado.
 
@@ -15,17 +19,17 @@ Para nossa arquitetura IoT seria o arduino com um módulo de bluetooth que se co
 
 Para a versão final do nosso produto precisamos ter o sensor de água, o módulo de bluetooth do arduino, luzes led (para checar funcionamento), e o arduino uno além de um aplicativo que irá receber, mostrar e computar os dados para o usuário ver.
 
-Para testar a aplicação em pyhton (arquivo 'Aplicacao.py') basta abrir o arquivo no pycharm e dar start. Para testar o projeto é preciso reproduzi-lo no simulid ou com as peças (com o link abaixo do tinkercad mas com o código disponibilizado no git) e importar o projeto 'Sprint 3 - Arquivo do node-red.json' para o node-red, e colocar corretamente a porta que está conectada no arduino. (Aviso: ter mais de um flow ao mesmo tempo pode causar problemas a aplicação)
+Para testar a aplicação em pyhton (arquivo 'Sprint 3 - Aplicacao.py') basta abrir o arquivo no pycharm e dar start. Para testar o projeto é preciso reproduzi-lo no simulid ou com as peças (com o link abaixo do tinkercad mas com o código disponibilizado no git 'Sprint 3 - Codigo do Arduino') e importar o projeto 'Sprint 3 - Arquivo do node-red.json' para o node-red, e colocar corretamente a porta que está conectada no arduino. (Aviso: ter mais de um flow ao mesmo tempo pode causar problemas a aplicação)
 
 Link do Tinkercad: https://www.tinkercad.com/things/1VEjGuj8NL9-projeto-final/editel?sharecode=xxMTsl_60qvQOiNnMGz9cqCO0B9_iPVfIEiUiCgyoBk
 
----- Link da apresentação
+## Link da apresentação
 
-Youtube: 
+Youtube: https://youtu.be/7bcTASgDxYE
 
----- Dados do node
+## Dados do node
 
-Inclui no RAR o arquivo do node, mas segue aqui em texto
+Inclui no Git o arquivo do node, mas segue aqui em texto
 
 [
     {
